@@ -31,8 +31,7 @@ build: ## Build the project
 	@go build -o bin/$(PROJECT) cmd/main.go
 
 proto: ## Generate proto files
-	protoc pkg/**/pb/*.proto --go_out=:. --go-grpc_out=:. 
-	# --go-grpc_out=:.  --go_out=./client --go-grpc_out=./client
+	protoc pkg/pb/*.proto --go_out=:. --go-grpc_out=:. 
 
 server: ## Run server
 	go run cmd/main.go
