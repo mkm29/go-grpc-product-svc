@@ -10,7 +10,17 @@ LABEL maintainer="Mitch Murphy <mitch.murphy@gmail.com>" \
   version="0.1.1" \
   description="Product service for Go gRPC demo"
 FROM alpine:3.16
+ARG DB_HOST="db"
+ARG DB_PORT="5432"
+ARG DB_DATABASE="product_svc"
+ARG DB_USERNAME
+ARG DB_PASSWORD
 COPY --from=builder /app /product-svc/app
 COPY --from=builder /go/src/github.com/mkm29/product-svc/pkg/config/envs/ /product-svc/
+ENV DB_HOST=$DB_HOST \
+  DB_PORT=$DB_PORT \
+  DB_USERNAME=$DB_USERNAME \
+  DB_PASSWORD=$DB_PASSWORD \
+  DB_DATABASE=$DB_DATABASE
 EXPOSE 50052
 ENTRYPOINT ["/product-svc/app"]
