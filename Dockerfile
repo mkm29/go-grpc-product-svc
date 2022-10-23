@@ -8,5 +8,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -o app cmd/main.go
 # Final image
 FROM alpine:3.16
 COPY --from=builder /go/src/github.com/mkm29/product-svc/app /app
-EXPOSE 50053
+EXPOSE 50052
 ENTRYPOINT ["/app"]
