@@ -10,6 +10,8 @@ type Config struct {
 
 func LoadConfig() (config Config, err error) {
 	viper.AddConfigPath("./pkg/config/envs")
+	// For Docker
+	viper.AddConfigPath("/product-svc")
 	viper.SetConfigName("dev")
 	viper.SetConfigType("env")
 
