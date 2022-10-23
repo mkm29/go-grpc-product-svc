@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"log"
 	"net/http"
 
 	pb "github.com/mkm29/go-grpc-product-svc/gen/proto/go"
@@ -19,6 +20,8 @@ func (s *Server) CreateProduct(ctx context.Context, req *pb.CreateProductRequest
 	product.Name = req.Name
 	product.Stock = req.Stock
 	product.Price = req.Price
+
+	log.Printf("Creating product: %v", product)
 
 	if result := s.H.DB.Create(&product); result.Error != nil {
 		return &pb.CreateProductResponse{

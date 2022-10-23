@@ -31,7 +31,7 @@ build: ## Build the project
 	@go build -o bin/$(PROJECT) cmd/main.go
 
 proto: ## Generate proto files
-	protoc pkg/pb/*.proto --go_out=:. --go-grpc_out=:. 
+	buf generate buf.build/smigula/product
 
 server: ## Run server
 	go run cmd/main.go
