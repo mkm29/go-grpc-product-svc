@@ -5,9 +5,9 @@ import (
 	"log"
 	"net"
 
+	pb "github.com/mkm29/go-grpc-product-svc/gen/proto/go"
 	"github.com/mkm29/go-grpc-product-svc/pkg/config"
 	"github.com/mkm29/go-grpc-product-svc/pkg/db"
-	pb "github.com/mkm29/go-grpc-product-svc/pkg/product/pb"
 	"github.com/mkm29/go-grpc-product-svc/pkg/services"
 	"google.golang.org/grpc"
 )
