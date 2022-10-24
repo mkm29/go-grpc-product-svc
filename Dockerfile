@@ -26,4 +26,4 @@ ENV DB_HOST=$DB_HOST \
   DB_DATABASE=$DB_DATABASE
 EXPOSE 50052
 # ENTRYPOINT ["/product-svc/app"]
-CMD ["./wait-for-it.sh", "db:5432", "--" , "./order-svc/app"]
+CMD ["./wait-for-it.sh", "db:5432", "--" , "./product-svc/app"]
