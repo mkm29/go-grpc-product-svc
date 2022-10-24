@@ -18,6 +18,7 @@ ARG DB_PASSWORD
 COPY --from=builder /app /product-svc/app
 COPY --from=builder /go/src/github.com/mkm29/product-svc/pkg/config/envs/ /product-svc/
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
+RUN apk add --no-cache bash && chmod +x /wait-for-it.sh
 ENV DB_HOST=$DB_HOST \
   DB_PORT=$DB_PORT \
   DB_USERNAME=$DB_USERNAME \
